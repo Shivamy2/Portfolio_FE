@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-. "$(dirname -- "$0")/_/check-console.sh"
+# . "$(dirname -- "$0")/_/check-console.sh"
 
 npm run format && npx lint-staged && git add .

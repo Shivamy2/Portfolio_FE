@@ -1,23 +1,13 @@
-import React, { memo } from "react";
+import React, { Suspense, memo } from "react";
 import "./App.css";
+import Routes from "./utils/router";
+import Loader from "./shared/Loader";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="text-red-500">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <Routes />
+    </Suspense>
   );
 }
 

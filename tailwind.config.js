@@ -10,6 +10,18 @@ export const theme = {
       "secondary-light": "#BAD7E9",
       "on-secondary": "#000000",
     },
+    backgroundImage: {
+      hero: "url('https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg')",
+    },
+  },
+  variants: {
+    backgroundOpacity: [
+      "responsive",
+      "hover",
+      "focus",
+      "active",
+      "group-hover",
+    ],
   },
 };
 export const plugins = [];

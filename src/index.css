@@ -1,16 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Source+Sans+3:wght@400&display=swap");
 body {
   margin: 0;
-  font-family: "Source Sans 3", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+  font-family: "'Source Sans Pro'", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Source Sans 3", Menlo, Monaco, Consolas, "Courier New",
+  font-family: "'Source Sans Pro'", Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

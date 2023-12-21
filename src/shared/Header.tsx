@@ -6,16 +6,16 @@ interface Props {}
 
 const Header: FC<Props> = () => {
   return (
-    <div className="min-h-[62px] bg-white flex shadow-md px-4 py-3">
+    <div className="min-h-[62px] bg-white flex shadow-md px-4 py-3 sticky -top-0 z-50">
       <div className="flex flex-1 items-center space-x-2">
         <div className="">
           <img
-            className="rounded-full h-12 w-12 my-auto border border-primary-dark"
+            className="rounded-full h-11 w-11 my-auto border border-primary-dark"
             src={Resources.Images.dp}
             alt="dp"
           />
         </div>
-        <div className="text-lg font-extrabold uppercase tracking-widest text-secondary-dark">
+        <div className="text-base font-bold uppercase tracking-widest text-secondary-dark">
           Shivam Yadav
         </div>
       </div>

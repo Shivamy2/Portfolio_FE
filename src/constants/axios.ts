@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3003" || "https://portfolio-be-cfxq.onrender.com",
+  baseURL: "https://portfolio-be-cfxq.onrender.com",
 });
 
 axiosInstance.interceptors.response.use(

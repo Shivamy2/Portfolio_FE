@@ -13,7 +13,7 @@ const Title: FC<Props> = ({ text, className }) => {
       >
         {text}
       </h1>
-      <hr className="border-2 w-20 bg-secondary-dark border-secondary-dark mx-auto mt-3" />
+      <hr className="border-2 w-20 bg-secondary-dark border-secondary-dark mx-auto mt-3 rounded-full" />
     </>
   );
 };

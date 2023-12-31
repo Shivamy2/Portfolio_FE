@@ -11,34 +11,58 @@ interface Props {
 const CompanyDetails: FC<Props> = ({ data, className }) => {
   return (
     <div className={`mt-10 text-center ${className}`}>
-      <div className="space-y-5">
-        <div className="text-2xl font-extrabold text-black tracking-wider">
+      <div className="text-2xl font-extrabold text-black tracking-wider">
+        <span className="bg-secondary-light px-5 py-2 rounded-lg">
           {data?.employerName}
-        </div>
-        <Description description={data?.overview} />
+        </span>
       </div>
-      <div className="mt-5 text-left">
-        <div className="flex">
-          <span className="flex-[0.3]">Location: </span>
-          <span className="font-semibold flex-1">{data?.employerLocation}</span>
+      <div className="md:grid md:grid-cols-2 md:mt-10 md:gap-20 pt-5">
+        <div className="space-y-5">
+          <div className="space-y-5">
+            <div className="mt-5 md:mt-0 text-left">
+              <div className="flex">
+                <span className="flex-[0.3] md:flex-[0.15]">Location: </span>
+                <span className="font-semibold flex-1 text-black">
+                  {data?.employerLocation}
+                </span>
+              </div>
+              <div className="flex">
+                <span className="flex-[0.3] md:flex-[0.15]">Position:</span>
+                <span className="font-semibold flex-1 text-secondary-dark">
+                  {data?.position}
+                </span>
+              </div>
+              <div className="flex">
+                <span className="flex-[0.3] md:flex-[0.15]">Joining:</span>
+                <span className="font-semibold flex-1 text-primary-dark">
+                  &nbsp;
+                  {moment(data?.joiningDate).format("Do MMMM, YYYY") +
+                    " - " +
+                    (data?.endingDate === "Present"
+                      ? data?.endingDate
+                      : moment(data?.endingDate).format("Do MMMM, YYYY"))}
+                </span>
+              </div>
+            </div>
+            <Description
+              description={data?.overview}
+              className="text-justify"
+            />
+          </div>
         </div>
-        <div className="flex">
-          <span className="flex-[0.3]">Position:</span>
-          <span className="font-semibold flex-1"> {data?.position} </span>
-        </div>
-        <div className="flex">
-          <span className="flex-[0.3]">Joining:</span>
-          <span className="font-semibold flex-1">
-            &nbsp;
-            {moment(data?.joiningDate).format("DD/MM/YYYY") +
-              " - " +
-              (data?.endingDate === "Present"
-                ? data?.endingDate
-                : moment(data?.endingDate).format("DD/MM/YYYY"))}
-          </span>
+        <div className="mt-5 md:mt-0">
+          <div className="font-bold text-lg text-black text-left tracking-wide">
+            What I Learned?
+          </div>
+          <ol className="mt-2 text-left space-y-3 list-disc">
+            {data?.points?.map((point, index) => (
+              <li key={index} className="ml-3">
+                <Description description={point} />
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

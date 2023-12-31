@@ -73,7 +73,7 @@ export const getCurrentEmployee = (code: string) => {
           }
           certification {
             title
-            description {
+            shortDescription {
               values
               literals
             }

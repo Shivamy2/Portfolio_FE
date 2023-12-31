@@ -14,7 +14,10 @@ const SectionHeader: FC<Props> = ({ title, description, className }) => {
     <div className={className}>
       <Title text={title} />
       <div className="mt-5 text-center">
-        <Description description={description} />
+        <Description
+          description={description}
+          className="md:text-lg md:px-40"
+        />
       </div>
     </div>
   );

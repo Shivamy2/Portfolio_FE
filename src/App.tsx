@@ -14,6 +14,7 @@ function App() {
     data: graphAPIData,
     isLoading: isGraphAPILoading,
     isFetching: isGraphAPIFetching,
+    isError: isGraphAPIError,
   } = useQuery(
     "master",
     () => callGraphQl(getCurrentEmployee(window.location.hostname)),
@@ -22,12 +23,40 @@ function App() {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
       onSuccess: async (res) => {
+        if (!res?.data?.getCurrectEmployeeData?.length) {
+          return (
+            <div className="text-center text-2xl text-red-700 mt-20">
+              No Data Found
+            </div>
+          );
+        }
         await applyTheme(
           res?.data?.getCurrectEmployeeData[0]?.details[0]?.theme,
         );
+        const link = document.querySelector('link[rel="icon"]');
+        const linkApple = document.querySelector(
+          'link[rel="apple-touch-icon"]',
+        );
+        if (link)
+          link.setAttribute(
+            "href",
+            res?.data?.getCurrectEmployeeData[0]?.details[0]?.dpUrl,
+          );
+        if (linkApple)
+          linkApple.setAttribute(
+            "href",
+            res?.data?.getCurrectEmployeeData[0]?.details[0]?.dpUrl,
+          );
       },
     },
   );
+  if (isGraphAPIError) {
+    return (
+      <div className="text-center text-2xl text-red-700 mt-20">
+        No Data Found
+      </div>
+    );
+  }
   return (
     <ProfileContext.Provider
       value={{

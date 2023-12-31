@@ -10,14 +10,17 @@ const Experience: FC<Props> = () => {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
 
   return (
-    <div className="pt-20 px-4">
+    <div
+      id="experience"
+      className="py-16 px-4 md:px-10 2xl:w-[1200px] 2xl:mx-auto"
+    >
       <SectionHeader
         title={currentProfile?.details[0]?.experience?.title}
         description={{
           values: currentProfile?.details[0]?.experience?.introduction,
         }}
       />
-      <div>
+      <div className="space-y-16">
         {currentProfile?.details[0]?.experience?.companies?.map(
           (data, index) => <CompanyDetails key={index} data={data} />,
         )}

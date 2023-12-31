@@ -3,15 +3,16 @@ export const content = ["./src/**/*.{js,jsx,ts,tsx}"];
 export const theme = {
   extend: {
     colors: {
-      "primary-dark": "#EB455F",
-      "primary-light": "#FCFFE7",
-      "on-primary": "#ffffff",
-      "secondary-dark": "#2B3467",
-      "secondary-light": "#BAD7E9",
-      "on-secondary": "#000000",
+      "primary-dark": "var(--theme-primary-dark)",
+      "primary-light": "var(--theme-primary-light)",
+      "on-primary": "var(--theme-on-primary)",
+      "secondary-dark": "var(--theme-secondary-dark)",
+      "secondary-light": "var(--theme-secondary-light)",
+      "on-secondary": "var(--theme-on-secondary)",
+      "tag-bg": "#99999933",
     },
     backgroundImage: {
-      hero: "url('https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg')",
+      hero: "var(--theme-hero)",
     },
   },
   variants: {

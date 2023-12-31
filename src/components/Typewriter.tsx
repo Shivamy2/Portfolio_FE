@@ -10,11 +10,11 @@ const Typewriter: FC<Props> = ({ text, className }) => {
   const [nameIndex, setNameIndex] = useState<number>(0);
 
   useEffect(() => {
-    if (nameIndex < text.length) {
+    if (nameIndex < text?.length) {
       const timeout = setTimeout(() => {
         setName((prev) => prev + text[nameIndex]);
         setNameIndex((prev) => prev + 1);
-      }, 200);
+      }, 100);
       return () => clearTimeout(timeout);
     }
   }, [nameIndex, text, name]);
@@ -22,7 +22,9 @@ const Typewriter: FC<Props> = ({ text, className }) => {
   return (
     <div className={className}>
       {name}
-      <span className="animate-pulse font-thin">|</span>
+      {name?.length !== text?.length && (
+        <span className="animate-pulse font-thin">|</span>
+      )}
     </div>
   );
 };

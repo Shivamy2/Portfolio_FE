@@ -3,13 +3,13 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: "'Source Sans Pro'", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+  font-family: "Source Sans Pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "'Source Sans Pro'", Menlo, Monaco, Consolas, "Courier New",
+  font-family: "Source Sans Pro", Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

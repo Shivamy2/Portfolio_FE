@@ -5,9 +5,10 @@ import Button from "../shared/Button";
 
 interface Props {
   data: IProjectDetails;
+  type: "personal" | "professional";
 }
 
-const ProjectDetails: FC<Props> = ({ data }) => {
+const ProjectDetails: FC<Props> = ({ data, type }) => {
   return (
     <div className="text-center space-y-8 md:grid md:grid-cols-2 md:gap-20">
       <div className="md:flex-shrink md:flex md:items-center">
@@ -24,6 +25,9 @@ const ProjectDetails: FC<Props> = ({ data }) => {
         <Description description={data?.overview} className="md:text-left" />
         <div className="flex justify-center md:justify-start md:pt-8">
           <Button
+            onClick={() =>
+              window.open(`/projects/${type}/${data?._id}`, "_blank")
+            }
             label="Case Study"
             className="!text-sm hover:bg-primary-dark ease-in-out duration-200 transition-all"
             type="secondary"

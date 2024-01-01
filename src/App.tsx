@@ -7,6 +7,7 @@ import { applyTheme } from "./utils/helper";
 import FallbackLoader from "./shared/FallbackLoader";
 import { callGraphQl } from "./service/master";
 import { useQuery } from "react-query";
+import Page404 from "./pages/Page404";
 
 export const ProfileContext = createContext<IMasterContext | null>(null);
 function App() {
@@ -23,13 +24,6 @@ function App() {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
       onSuccess: async (res) => {
-        if (!res?.data?.getCurrectEmployeeData?.length) {
-          return (
-            <div className="text-center text-2xl text-red-700 mt-20">
-              No Data Found
-            </div>
-          );
-        }
         await applyTheme(
           res?.data?.getCurrectEmployeeData[0]?.details[0]?.theme,
         );
@@ -50,12 +44,14 @@ function App() {
       },
     },
   );
+  if (
+    !isGraphAPILoading &&
+    !graphAPIData?.data?.getCurrectEmployeeData?.length
+  ) {
+    return <Page404 />;
+  }
   if (isGraphAPIError) {
-    return (
-      <div className="text-center text-2xl text-red-700 mt-20">
-        No Data Found
-      </div>
-    );
+    return <Page404 />;
   }
   return (
     <ProfileContext.Provider

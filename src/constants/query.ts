@@ -105,6 +105,7 @@ export const getCurrentEmployee = (code: string) => {
               literals
             }
             personalProjectsDetails {
+              _id
               title
               shortDescription {
                 literals
@@ -128,6 +129,7 @@ export const getCurrentEmployee = (code: string) => {
               hostedUrl
             }
             professionalProjectsDetails {
+              _id
               title
               shortDescription {
                 values
@@ -158,6 +160,50 @@ export const getCurrentEmployee = (code: string) => {
     `,
     variables: {
       code,
+    },
+  };
+};
+
+export const getProject = ({
+  code,
+  id,
+  type,
+}: {
+  code: string;
+  id: string;
+  type: string;
+}) => {
+  return {
+    query: `
+    query GetProject($input: GetProjectInput!) {
+      getProjects(input: $input){
+        _id
+        title
+        shortDescription {
+          literals
+          values
+        }
+        longDescription {
+          values
+          literals
+        }
+        overview {
+          values
+          literals
+        }
+        points {
+          values
+          literals
+        }
+        stackUsed
+        imageUrl
+        pocUrl
+        hostedUrl
+      }
+    }
+    `,
+    variables: {
+      input: { code, id, type },
     },
   };
 };

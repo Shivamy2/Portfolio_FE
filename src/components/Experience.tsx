@@ -12,7 +12,7 @@ const Experience: FC<Props> = () => {
   return (
     <div
       id="experience"
-      className="py-16 px-4 md:px-10 2xl:w-[1200px] 2xl:mx-auto"
+      className="py-20 px-4 md:px-10 2xl:w-[1200px] 2xl:mx-auto"
     >
       <SectionHeader
         title={currentProfile?.details[0]?.experience?.title}

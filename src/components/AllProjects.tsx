@@ -33,7 +33,7 @@ const AllProjects: FC<Props> = () => {
             <div className="mt-10 space-y-20">
               {currentProfile?.details[0]?.projects?.personalProjectsDetails?.map(
                 (details, index) => (
-                  <ProjectDetails key={index} data={details} />
+                  <ProjectDetails type="personal" key={index} data={details} />
                 ),
               )}
             </div>
@@ -51,7 +51,11 @@ const AllProjects: FC<Props> = () => {
             <div className="mt-10 space-y-20">
               {currentProfile?.details[0]?.projects?.professionalProjectsDetails?.map(
                 (details, index) => (
-                  <ProjectDetails key={index} data={details} />
+                  <ProjectDetails
+                    type="professional"
+                    key={index}
+                    data={details}
+                  />
                 ),
               )}
             </div>

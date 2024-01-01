@@ -11,9 +11,9 @@ interface Props {}
 const About: FC<Props> = () => {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
   return (
-    <main
+    <div
       id="about"
-      className="mt-20 px-4 md:px-10 md:pb-10 2xl:w-[1200px] 2xl:mx-auto"
+      className="pt-20 px-4 md:px-10 md:pb-10 2xl:w-[1200px] 2xl:mx-auto"
     >
       <SectionHeader
         title={currentProfile?.details[0]?.about?.title}
@@ -47,7 +47,7 @@ const About: FC<Props> = () => {
           </dd>
         </dl>
       </div>
-    </main>
+    </div>
   );
 };
 

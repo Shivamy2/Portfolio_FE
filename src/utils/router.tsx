@@ -16,7 +16,7 @@ const Routes = () => {
       element: <Main />,
     },
     {
-      path: "/projects/:id",
+      path: "/projects/:type/:id",
       element: <Projects />,
     },
     {

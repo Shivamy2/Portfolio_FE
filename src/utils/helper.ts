@@ -30,7 +30,7 @@ const mapDecoratedTagWithText = (literal: string[]) => {
     case "i":
       return `<i>${literal[1]}</i>`;
     case "l":
-      return `<a className="text-secondary-dark font-bold underline" href=${literal[2]}>${literal[1]}</a>`;
+      return `<a className="text-secondary-dark font-bold underline" href=${literal[2]} target="_black" rel="noreferrer">${literal[1]}</a>`;
     default:
       "";
   }

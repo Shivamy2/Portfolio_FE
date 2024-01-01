@@ -33,7 +33,7 @@ const CertificationDetails: FC<Props> = ({ data }) => {
                 rel="noreferrer"
                 className="capitalize bg-primary-dark px-6 py-2 text-on-primary tracking-wider rounded-lg"
               >
-                visit
+                check
               </a>
             </span>
           </div>

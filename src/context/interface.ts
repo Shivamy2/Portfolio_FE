@@ -50,6 +50,7 @@ export interface IAbout {
 }
 
 export interface IProjectDetails {
+  _id: string;
   title: string;
   shortDescription: IDescription;
   longDescription?: IDescription;

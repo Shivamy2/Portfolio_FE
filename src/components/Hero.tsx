@@ -18,7 +18,7 @@ const Hero: FC<Props> = () => {
     >
       <Typewriter
         text={currentProfile?.details[0]?.home?.typewriterText}
-        className="uppercase text-4xl md:text-6xl px-1 tracking-widest text-secondary-dark leading-normal font-hero-title"
+        className="uppercase text-4xl md:text-6xl px-1 md:px-20 tracking-widest text-secondary-dark leading-normal font-hero-title"
       />
       <section className="mt-6 leading-7 px-4 text-on-secondary md:px-40">
         <Description
@@ -26,9 +26,11 @@ const Hero: FC<Props> = () => {
           className="md:text-xl"
         />
       </section>
-      <a href="#projects">
-        <Button label="Projects" className="!mx-auto mt-7 px-14 !max-w-min" />
-      </a>
+      <span className="flex justify-center">
+        <a href="#projects">
+          <Button label="Projects" className="mt-7 px-14 !max-w-min" />
+        </a>
+      </span>
       <div className="hidden md:block bg-white absolute top-48 px-4 text-black text-center rounded-r-lg shadow-lg">
         {currentProfile?.details?.[0]?.home?.socialLinks?.linkedin && (
           <a

@@ -18,15 +18,15 @@ const Footer: FC<Props> = () => {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
 
   return (
-    <div className="bg-black text-white px-4 md:px-10 py-8 md:py-20 space-y-10">
-      <div className="md:grid md:grid-cols-3 space-y-10 md:space-y-0">
+    <div className="bg-black text-white px-4 md:px-10 pt-8 md:pt-20 pb-10 space-y-10">
+      <div className="md:grid md:grid-cols-3 space-y-10 md:space-y-0 2xl:w-[1200px] 2xl:mx-auto">
         <div className="space-y-3">
           <div className="text-xl font-extrabold uppercase tracking-widest">
             {currentProfile?.details[0]?.name}
           </div>
           <Description
             description={currentProfile?.details[0]?.introduction}
-            className="text-sm leading-6 font-light"
+            className="text-sm leading-6 font-light text-gray-100"
           />
         </div>
         <div />
@@ -95,7 +95,7 @@ const Footer: FC<Props> = () => {
         </div>
       </div>
       <hr className="border border-gray-400" />
-      <div className="text-center text-xs tracking-wider">
+      <div className="text-center text-xs text-gray-100 tracking-wider">
         &copy; Copyright {moment().year()}. Made by{" "}
         <span className="font-bold underline">
           {currentProfile?.details[0]?.name}

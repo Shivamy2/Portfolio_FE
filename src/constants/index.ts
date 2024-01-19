@@ -5,3 +5,6 @@ export const Resources = {
     dp: `${imageBase}/dp.jpg`,
   },
 };
+
+export const baseURL =
+  "http://localhost:3003" || "https://portfolio-be-cfxq.onrender.com";

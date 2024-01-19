@@ -12,8 +12,20 @@ import { ProfileContext } from "../App";
 function Main() {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
   useEffect(() => {
+    const href = window.location.href;
+    if (href.includes("#")) {
+      const id = `${href.substring(href.indexOf("#") + 1)}`;
+      const anchor = document.getElementById(id);
+      if (anchor) {
+        console.log("id", id, anchor);
+        anchor.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+  useEffect(() => {
     document.title = `${currentProfile?.details[0]?.name} | Portfolio`;
   }, []);
+
   return (
     <div className="text-on-secondary">
       <Header />

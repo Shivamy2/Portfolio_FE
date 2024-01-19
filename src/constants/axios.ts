@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
+import { baseURL } from ".";
 
 const axiosInstance = axios.create({
-  baseURL: "https://portfolio-be-cfxq.onrender.com",
+  baseURL,
 });
 
 axiosInstance.interceptors.response.use(

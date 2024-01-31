@@ -3,8 +3,12 @@ export const getCurrentEmployee = (code: string) => {
     query: `
     query GetAllData($code: String!) {
       getCurrectEmployeeData(code: $code) {
+        _id
         details {
           userCode
+          email
+          mobile
+          resumeLink
           about {
             title
             myIntroduction {
@@ -204,6 +208,50 @@ export const getProject = ({
     `,
     variables: {
       input: { code, id, type },
+    },
+  };
+};
+
+export const sendChatRequest = ({
+  name,
+  createdBy,
+  createdFor,
+  employeeId,
+  message,
+}: {
+  name: string;
+  createdFor: string;
+  createdBy: string;
+  employeeId: string;
+  message: string;
+}) => {
+  return {
+    query: `
+      mutation Mutation($input: SendChat!) {
+        sendChatRequest(input: $input) {
+          _id
+          participants
+        }
+      }
+    `,
+    variables: {
+      input: { name, createdBy, createdFor, employeeId, message },
+    },
+  };
+};
+
+export const getChatData = (chatId: string) => {
+  return {
+    query: `
+      mutation Mutation($chatId: String!) {
+        getChattingData(chatId: $chatId) {
+          _id
+          participants
+        }
+      }
+    `,
+    variables: {
+      chatId,
     },
   };
 };

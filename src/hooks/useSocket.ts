@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
-import io, { Socket } from "socket.io-client";
+import io from "socket.io-client";
 import { baseURL } from "../constants";
+import { useQuery } from "react-query";
 
 const getSocket = () => io(baseURL);
 const useSocket = () => {
-  const [socket, setSocket] = useState<Socket>();
+  // const [socket, setSocket] = useState<Socket>();
+  const { data, isLoading, isFetching } = useQuery(
+    ["initializeSocket"],
+    () => getSocket(),
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
-  useEffect(() => {
-    setSocket(getSocket());
-  }, []);
+  if (isLoading || isFetching) {
+    return null;
+  }
 
-  return socket;
+  return data;
 };
 
 export default useSocket;

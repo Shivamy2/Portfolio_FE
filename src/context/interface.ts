@@ -118,8 +118,11 @@ export interface ITheme {
 
 export interface IEmployeeDetails {
   name: string;
+  email: string;
+  mobile: string;
   dpUrl: string;
   userCode: string;
+  resumeLink: string;
   introduction: IDescription;
   home: IHome;
   about: IAbout;
@@ -131,6 +134,7 @@ export interface IEmployeeDetails {
 }
 
 export interface IMaster {
+  _id: string;
   headerOptions: string[];
   details: IEmployeeDetails[];
 }

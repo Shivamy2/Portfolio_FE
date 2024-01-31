@@ -5,11 +5,13 @@ import { IMasterContext } from "../context/interface";
 import { ProfileContext } from "../App";
 import Description from "../shared/Description";
 import SectionHeader from "../shared/SectionHeader";
+import { useNavigate } from "react-router-dom";
 
 interface Props {}
 
 const About: FC<Props> = () => {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
+  const navigate = useNavigate();
   return (
     <div
       id="about"
@@ -30,10 +32,16 @@ const About: FC<Props> = () => {
                 }
               />
             </p>
-            <Button
-              label="Contact"
-              className="px-6 mt-8 !text-base !max-w-min"
-            />
+            <a
+              href={currentProfile?.details?.[0]?.resumeLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button
+                label="Download Resume"
+                className="mt-8 !text-base w-60 text-center"
+              />
+            </a>
           </dd>
         </dl>
         <dl className="py-16 md:pt-8">

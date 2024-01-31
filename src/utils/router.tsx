@@ -2,6 +2,7 @@
 import { lazy } from "react";
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import Contact from "../pages/Contact";
+import Chat from "../pages/Chat";
 const Main = lazy(() => import("../pages/Main"));
 const Projects = lazy(() => import("../pages/Projects"));
 const Page404 = lazy(() => import("../pages/Page404"));
@@ -23,6 +24,10 @@ const Routes = () => {
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "/chat/:id",
+      element: <Chat />,
     },
     {
       path: "/not-found",

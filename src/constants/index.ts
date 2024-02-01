@@ -6,5 +6,4 @@ export const Resources = {
   },
 };
 
-export const baseURL =
-  "http://localhost:3003" || "https://portfolio-be-cfxq.onrender.com";
+export const baseURL = "https://portfolio-be-cfxq.onrender.com";

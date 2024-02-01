@@ -5,13 +5,11 @@ import { IMasterContext } from "../context/interface";
 import { ProfileContext } from "../App";
 import Description from "../shared/Description";
 import SectionHeader from "../shared/SectionHeader";
-import { useNavigate } from "react-router-dom";
 
 interface Props {}
 
 const About: FC<Props> = () => {
   const { currentProfile } = useContext(ProfileContext) as IMasterContext;
-  const navigate = useNavigate();
   return (
     <div
       id="about"

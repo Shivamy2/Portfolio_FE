@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, memo, useContext } from "react";
 import Title from "../shared/Title";
 import * as yup from "yup";
